@@ -5,7 +5,7 @@ import { Observable, tap } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'https://parcial-backend-jfka.onrender.com';
+  private apiUrl = 'https://parcial-backend-jfka.onrender.com/api/auth';
 
   constructor(private http: HttpClient) {}
 
