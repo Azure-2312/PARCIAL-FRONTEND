@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class ProductoService {
-  private apiUrl = 'https://parcial-backend-jfka.onrender.com/api/producto';
+  private apiUrl = 'https://parcial-backend-jfka.onrender.com/api';
 
   constructor(private http: HttpClient, private auth: AuthService) {}
 
