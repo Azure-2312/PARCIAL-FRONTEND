@@ -1,0 +1,64 @@
+<div class="buscador-wrapper">
+  <div class="buscador-header">
+    <button class="btn-back" (click)="regresar()">← Regresar</button>
+    <h2>🔍 Buscador de Productos</h2>
+  </div>
+
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="codigo"
+      placeholder="Ej: PROD-001"
+      (keyup.enter)="buscar()"
+      class="input-codigo"
+      [disabled]="loading"
+    />
+    <button class="btn-buscar" (click)="buscar()" [disabled]="loading">
+      {{ loading ? 'Buscando...' : 'Buscar' }}
+    </button>
+    <button class="btn-limpiar" (click)="limpiar()" *ngIf="buscado">✕</button>
+  </div>
+
+  <div class="resultado-error" *ngIf="errorMsg">
+    <span class="icon-error">✗</span>
+    <p>{{ errorMsg }}</p>
+  </div>
+
+  <div class="resultado-card" *ngIf="producto">
+    <div class="result-badge">Producto encontrado</div>
+    <div class="product-grid">
+      <div class="product-field">
+        <span class="label">Código</span>
+        <span class="value code-val">{{ producto.codigo }}</span>
+      </div>
+      <div class="product-field">
+        <span class="label">Nombre</span>
+        <span class="value">{{ producto.nombre }}</span>
+      </div>
+      <div class="product-field full">
+        <span class="label">Descripción</span>
+        <span class="value">{{ producto.descripcion }}</span>
+      </div>
+      <div class="product-field">
+        <span class="label">Categoría</span>
+        <span class="value tag">{{ producto.categoria }}</span>
+      </div>
+      <div class="product-field">
+        <span class="label">Precio</span>
+        <span class="value price">S/ {{ producto.precio }}</span>
+      </div>
+      <div class="product-field">
+        <span class="label">Stock</span>
+        <span class="value" [class.low-stock]="producto.stock < 10">
+          {{ producto.stock }} {{ producto.unidad }}(s)
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="empty-state" *ngIf="!buscado && !loading">
+    <div class="empty-icon">📦</div>
+    <p>Ingrese el código de un producto para ver su información</p>
+    <small>Códigos de prueba: PROD-001, PROD-002 ... PROD-008</small>
+  </div>
+</div>

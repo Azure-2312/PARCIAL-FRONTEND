@@ -1,0 +1,45 @@
+<!-- src/app/pages/login/login.component.html -->
+<div class="login-wrapper">
+  <div class="login-card">
+    <div class="brand">
+      <div class="brand-icon">⬡</div>
+      <h1>SISTEMA<span>PRO</span></h1>
+      <p class="tagline">Gestión de Productos</p>
+    </div>
+
+    <div class="form-body">
+      <div class="field">
+        <label>Usuario</label>
+        <input
+          type="text"
+          [(ngModel)]="username"
+          placeholder="Ingrese su usuario"
+          (keyup.enter)="onLogin()"
+          autocomplete="username"
+        />
+      </div>
+
+      <div class="field">
+        <label>Contraseña</label>
+        <input
+          type="password"
+          [(ngModel)]="password"
+          placeholder="••••••••"
+          (keyup.enter)="onLogin()"
+          autocomplete="current-password"
+        />
+      </div>
+
+      <div class="error-box" *ngIf="errorMsg">
+        <span>⚠</span> {{ errorMsg }}
+      </div>
+
+      <button class="btn-login" (click)="onLogin()" [disabled]="loading">
+        <span *ngIf="!loading">Ingresar al sistema</span>
+        <span *ngIf="loading" class="spinner">Verificando...</span>
+      </button>
+    </div>
+
+    <p class="hint">usuarios prueba: <strong>admin / admin123</strong></p>
+  </div>
+</div>

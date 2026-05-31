@@ -1,0 +1,76 @@
+.principal-wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  height: 56px;
+}
+.topbar-left { display: flex; align-items: center; gap: 10px; }
+.logo-mark { color: var(--accent); font-size: 1.4rem; }
+.sys-name { font-family: var(--mono); font-size: .85rem; letter-spacing: 3px; color: var(--text); }
+.topbar-right { display: flex; align-items: center; gap: 16px; }
+.clock { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+.user-badge {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: .82rem;
+  color: var(--accent);
+}
+
+.dashboard { flex: 1; padding: 48px 40px; }
+.welcome-block { margin-bottom: 40px; }
+.welcome-block h2 { font-size: 1.8rem; font-weight: 300; color: var(--text); }
+.welcome-block h2 span { color: var(--accent); font-weight: 600; }
+.welcome-block p { color: var(--muted); margin-top: 6px; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+
+.menu-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  cursor: pointer;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+  position: relative;
+  overflow: hidden;
+}
+.menu-card:not(.disabled):hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(79,142,247,.15);
+}
+.menu-card.disabled { opacity: .4; cursor: default; }
+.card-icon { font-size: 2rem; margin-bottom: 14px; }
+.menu-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 8px; }
+.menu-card p { color: var(--muted); font-size: .85rem; line-height: 1.5; }
+.card-arrow {
+  position: absolute; right: 20px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent); font-size: 1.3rem;
+  opacity: 0; transition: opacity .2s, right .2s;
+}
+.menu-card:hover .card-arrow { opacity: 1; right: 16px; }
+
+.footer-bar {
+  padding: 16px 40px;
+  border-top: 1px solid var(--border);
+  text-align: right;
+}
+.btn-salir {
+  background: transparent;
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  color: var(--danger);
+  font-family: var(--mono);
+  font-size: .82rem;
+  letter-spacing: 1px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.btn-salir:hover { background: var(--danger); color: #fff; }
